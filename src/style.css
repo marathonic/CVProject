@@ -1,0 +1,362 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    --dark-navy: #000042;
+    --pocari: #056CF2;
+    --pocari-dark: #0A3EA6;
+}
+
+body {
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.headr {
+    background-color: var(--dark-navy);
+    background-color: palevioletred;
+    background-color: skyblue;
+    height: 3rem;
+    min-height: max-content;
+    grid-column: 1 / 3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headr > h3 {
+    letter-spacing: 1px;    
+}
+
+.big-container {
+    background-color: whitesmoke;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 6rem;
+    padding-block: 4rem;
+    background-color: rgb(250, 243, 233);
+    
+}
+
+.editing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 3rem;
+    box-shadow: 0 0.45rem 0.45rem gray;
+    background-color: white;
+}
+
+.editing-container h3 {
+    font-size: 23px;
+    padding-top: 16px;
+}
+
+.editing-container > section {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.editing-container > section > label {
+    font-size: 21px;
+    margin-block: 15px;
+}
+
+.editing-container > section > input {
+    min-height: 42px;
+    border:none;
+    border-bottom: solid 1px var(--dark-navy);
+    background-color: whitesmoke;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.exp-section > textarea {
+    max-width: 100%;
+    max-height: 150px;
+    line-height: 1.5;
+    letter-spacing: 0px;
+    font-size: 1.3rem;
+    border-radius: 7px;
+    border: 1px solid darkgray;
+    resize: none;
+}
+
+.education-section-dates {
+    display: flex;
+    justify-content: space-around;
+    padding-block: 50px;
+    border: dashed 1px whitesmoke;
+    border-top: none;
+}
+
+.education-section-dates > input[type=month] {
+    width: 42%;
+    font-size: 20px;
+}
+
+/* Right panel */
+
+.cv-render {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5rem;
+    box-shadow: 0 0.45rem 0.45rem gray;
+    background-color: white;
+    height:100%;
+    /* background-color: #0A3EA6; */
+    /* color: white; */
+}
+
+hr {
+    border: 0;
+
+    /* border-bottom: solid gray 3px */
+    clear: both;
+    display: block;
+    width: 96%;
+    background-color: gray;
+    height: 1px;
+}
+
+.rendered-personal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* background-color: var(--pocari); */
+    /* color: white; */;
+}
+
+.rendered-personal > h3 {
+    font-size: 72px;
+    margin: 0;
+}
+
+.rendered-personal > p:first-of-type {
+    font-size: 21px;
+    padding: 0;
+    margin: 0;
+}
+
+/* .rendered-personal > div:first-of-type > p:first-of-type::before {
+    content: '';
+    background: url('./img/phone.png') no-repeat;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+
+}
+*/
+.rendered-personal > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+} 
+
+.rendered-personal > div > img {
+    width: 36px;
+    height: 36px;
+}
+
+.rendered-personal > div > p { 
+    font-size: 21px;
+}
+
+.rendered-professional {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.big-xp > h3:first-of-type {
+    font-size: 39px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.big-xp > h3:nth-of-type(2) {
+    margin: 0;
+    padding: 0;
+    font-size: 67px;
+}
+
+.prev-exp {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* text-align: center; */
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+}
+/* 
+.prev-exp > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.prev-exp > div > p {
+    margin: 0.5rem;
+    font-size: 23px;
+}
+
+.exp-strip {
+    display: flex;
+    width: 100%;
+}
+
+.exp-brick {
+    min-width: 23%;
+    max-width: 23%;
+    background-color: beige;
+    /* text-align: center; */
+    font-size: 21px;
+    padding-left: 9px;
+}
+
+.exp-brick:nth-of-type(5n+1) > .exp-brick {
+    background-color: beige;
+    color: black;
+}
+
+.exp-strip:nth-of-type(2n+2) > .exp-brick {
+    background-color: peachpuff;
+    color: maroon;
+}
+
+.exp-strip:nth-of-type(3n+3) > .exp-brick {
+    background-color: rgb(225, 199, 165);
+    color: maroon;
+}
+
+.exp-strip:nth-of-type(6n+4) > .exp-brick {
+    background-color: skyblue;
+    color: white;
+}
+
+.exp-strip:nth-of-type(6n+5) > .exp-brick {
+    background-color: palegoldenrod;
+    color: black;
+}
+
+.exp-tasks {
+    width: 70%;
+    display: flex;
+    padding-left: 20px;
+    font-size: 23px;
+    overflow: auto;
+    background-color: whitesmoke;
+    border-bottom: solid lightgray 1px;
+}
+
+.prev-exp > .exp-strip:last-of-type > .exp-tasks {
+    border-bottom: none;
+}
+
+.rendered-academics {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.rendered-academics > h3 {
+    font-size: 33px;
+}
+
+.rendered-edu-details {
+    background-color: whitesmoke;
+    border-bottom: solid 1px lightgray;
+}
+
+.edu-details > h3 {
+    font-size: 23px;
+}
+
+.edu-details > p {
+    font-size: 21px;
+}
+
+.addSection-btn {
+    font-size: 21px;
+    margin-top: 20px;
+    border: none;
+    height: 2rem;
+}
+
+.addSection-btn:hover {
+    background-color: palegoldenrod;
+    cursor: pointer;
+}
+
+.addSection-btn:active {
+    letter-spacing: 2px;
+}
+
+.exp-brick > p {
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.footr {
+    background-color: var(--dark-navy);
+    background-color: skyblue;
+    background-color: palevioletred;
+    background-color: beige;
+    height: 3rem;
+    grid-column: 1 / 3;
+    grid-row: 2;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* position: relative; */
+}
+
+
+.footr > div {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Raleway';
+    position: relative;
+    background-color: palevioletred;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.footr > div > div > a {
+    font-size: 25px;
+    /* padding: 10px; */
+    /* padding-left: 3px; */
+    text-decoration: none;
+    color: white;
+}
+
+.footr > div > div > a:hover {
+    cursor: pointer;
+    color: yellow;
+    position: relative;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(./fonts/Raleway-VariableFont_wght.ttf) format('truetype');
+}
