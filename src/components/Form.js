@@ -168,16 +168,17 @@ class Form extends Component {
     console.log("section type is " + sectionType);
     console.log("button id is " + buttonID);
 
-    let foundSection = this.state.professionalArray.find(
-      (sec) => (sec.sectionNumber = buttonID)
-    );
-
     if (sectionType === "professional") {
       this.setState({
         professional: {
-          ...foundSection,
+          ...this.state.professionalArray.find(
+            (sec) => sec.sectionNumber === buttonID
+          ),
           sectionNumber: uniqid(),
         },
+        professionalArray: this.state.professionalArray.filter(
+          (section) => section.sectionNumber !== buttonID
+        ),
       });
     } else if (sectionType === "academic") {
       this.setState({
