@@ -52,9 +52,8 @@ class RenderProfessional extends Component {
     // const { workplace, position, lengthOfStay, tasks } =
     //   this.props.professional;
 
-    const assignID = () => {
-      // we can set a uniqid(unique key) as an object property, then pass the key to each of these buttons as the id.
-    };
+    //I KNOW WHAT TO DO!
+    // we can set a uniqid(unique key) as an object property in Form.js, then pass it to each of these buttons as the id.
 
     return (
       <div className="rendered-professional">

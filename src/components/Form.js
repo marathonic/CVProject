@@ -3,6 +3,7 @@ import RenderPersonal from "./RenderPersonal";
 import RenderProfessional from "./RenderProfessional";
 import RenderAcademics from "./RenderAcademics'";
 import { getDate, getMaxFutureGrad } from "./getDate";
+import uniqid from "uniqid";
 
 class Form extends Component {
   constructor() {
@@ -21,7 +22,7 @@ class Form extends Component {
         position: "Position",
         stay: "X yr and/or months",
         tasks: "-",
-        sectionNumber: 0,
+        sectionNumber: uniqid(),
       },
 
       academicArray: [],
@@ -31,7 +32,7 @@ class Form extends Component {
         program: "Superfluid Dynamics",
         startDate: "",
         endDate: "",
-        sectionNumber: 0,
+        sectionNumber: uniqid(),
       },
     };
     this.removeSectionWorkplace = this.removeSectionWorkplace.bind(this);
@@ -89,7 +90,7 @@ class Form extends Component {
       position: "",
       stay: "",
       tasks: "",
-      sectionNumber: this.state.professional.sectionNumber + 1,
+      sectionNumber: uniqid(),
     };
 
     const emptyAcademic = {
@@ -97,7 +98,7 @@ class Form extends Component {
       program: "",
       startDate: "",
       endDate: "",
-      sectionNumber: this.state.academic.sectionNumber + 1,
+      sectionNumber: uniqid(),
     };
 
     this.setState({
@@ -121,7 +122,7 @@ class Form extends Component {
         position: "",
         stay: "",
         tasks: "",
-        sectionNumber: this.state.professional.sectionNumber + 1,
+        sectionNumber: uniqid(),
       },
     });
   };
@@ -144,7 +145,7 @@ class Form extends Component {
       professionalArray: this.state.professionalArray.filter(function (
         section
       ) {
-        return Number(section.sectionNumber) !== Number(e.target.id);
+        return section.sectionNumber !== e.target.id;
       }),
     });
   }
@@ -158,48 +159,34 @@ class Form extends Component {
   }
 
   editSection(e) {
-    // Steps: 1) Set the data as the state of the editable form. Done. 2) Re-render professionalArray without the obj that was just copied.
+    // Steps: 1) Set the data as the state of the editable form. 2) Delete the original obj inside of professionalArray (obj that was copied).
 
     let { name, id } = e.target;
-    let sectionIndex = id; // the section's index in the array
-    sectionIndex = sectionIndex.substring(5);
-    sectionIndex = Number(sectionIndex); // Side effect: IDs are given in sequential order, so they tell us the order they should be sorted in the array!
+    let buttonID = id;
+    buttonID = buttonID.substring(5);
     let sectionType = name.substring(5); //'professional' || 'academic'
     console.log("section type is " + sectionType);
-    console.log("button id is " + sectionIndex);
+    console.log("button id is " + buttonID);
+
+    let foundSection = this.state.professionalArray.find(
+      (sec) => (sec.sectionNumber = buttonID)
+    );
 
     if (sectionType === "professional") {
-      const arrCopy = [...this.state.professionalArray];
-      const filteredArr = arrCopy.filter(
-        (obj) => arrCopy.indexOf(obj) !== sectionIndex
-      );
-
       this.setState({
         professional: {
-          workplace: this.state.professionalArray[sectionIndex].workplace,
-          position: this.state.professionalArray[sectionIndex].position,
-          tasks: this.state.professionalArray[sectionIndex].tasks,
-          stay: this.state.professionalArray[sectionIndex].stay,
-          sectionNumber:
-            this.state.professionalArray[sectionIndex].sectionNumber,
+          ...foundSection,
+          sectionNumber: uniqid(),
         },
-        professionalArray: this.state.professionalArray.filter(function (
-          section
-        ) {
-          return section.sectionNumber !== sectionIndex;
-        }),
       });
-      // return arrCopy.filter(
-      //   (section) => arrCopy.indexOf(section) !== sectionIndex
-      // );
     } else if (sectionType === "academic") {
       this.setState({
         academic: {
-          school: this.state.academicArray[sectionIndex].school,
-          program: this.state.academicArray[sectionIndex].program,
-          startDate: this.state.academicArray[sectionIndex].startDate,
-          endDate: this.state.academicArray[sectionIndex].endDate,
-          sectionNumber: this.state.academicArray[sectionIndex].sectionNumber,
+          school: this.state.academicArray[buttonID].school,
+          program: this.state.academicArray[buttonID].program,
+          startDate: this.state.academicArray[buttonID].startDate,
+          endDate: this.state.academicArray[buttonID].endDate,
+          sectionNumber: this.state.academicArray[buttonID].sectionNumber,
         },
       });
     }
