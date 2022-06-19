@@ -51,6 +51,11 @@ class RenderProfessional extends Component {
     // const { professional } = this.props;
     // const { workplace, position, lengthOfStay, tasks } =
     //   this.props.professional;
+
+    const assignID = () => {
+      // we can set a uniqid(unique key) as an object property, then pass the key to each of these buttons as the id.
+    };
+
     return (
       <div className="rendered-professional">
         <div className="big-xp">
@@ -75,6 +80,7 @@ class RenderProfessional extends Component {
                   className="edit-section-btn"
                   onClick={this.props.editSection}
                   id={"edit-" + section.sectionNumber}
+                  name="edit-professional"
                 >
                   Edit
                 </button>
