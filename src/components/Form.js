@@ -128,14 +128,25 @@ class Form extends Component {
   };
 
   recordAcademicSection = (e) => {
+    //We want to clean these 2 record sections up into 1, we just:
+    // concatenate the appropriate [] to newSection, either 'professional' or 'academic'.
+    // regardless of which one was clicked, let's call it X, and store it in a variable. That variable holds either 'professional' or 'academic'
+    // That variable looks like: < const profOrAcademic = this.state[X] >  // <--- for example, that could be the same as: this.state[academicArray],
+    // We also want to store the setter state property that holds that section, like so: < const sectionArray = X + Array> // <-- (same as line 142 below)
+    // then on the next line we set the state: this.setState({sectionArray: profOrAcademic})
+    // loop over all the keys inside the object we get (either academic or professional),
+    // and set them all to "" empty strings, then we assign a new sectionNumber, and that's it.
+    // FOR NOW THOUGH, LET'S CONTINUE GIVING ACADEMIC THE SAME FUNCTIONALITY AS WORKPLACE.
+    const newSection = [].concat(this.state.academic);
+
     this.setState({
-      academicArray: this.state.academicArray.concat(this.state.academic),
+      academicArray: this.state.academicArray.concat(newSection),
       academic: {
         school: "",
         program: "",
         startDate: "",
         endDate: "",
-        sectionNumber: this.state.academic.sectionNumber + 1,
+        sectionNumber: uniqid(),
       },
     });
   };
@@ -153,7 +164,7 @@ class Form extends Component {
   removeSectionAcademic(e) {
     this.setState({
       academicArray: this.state.academicArray.filter(function (section) {
-        return Number(section.sectionNumber) !== Number(e.target.id);
+        return section.sectionNumber !== e.target.id;
       }),
     });
   }
@@ -186,12 +197,14 @@ class Form extends Component {
       //GIVE academic THE SAME FUNCTIONALITY AS professional!
       this.setState({
         academic: {
-          school: this.state.academicArray[buttonID].school,
-          program: this.state.academicArray[buttonID].program,
-          startDate: this.state.academicArray[buttonID].startDate,
-          endDate: this.state.academicArray[buttonID].endDate,
-          sectionNumber: this.state.academicArray[buttonID].sectionNumber,
+          ...this.state.academicArray.find(
+            (sec) => sec.sectionNumber === buttonID
+          ),
+          sectionNumber: uniqid(),
         },
+        academicArray: this.state.academicArray.filter(
+          (section) => section.sectionNumber !== buttonID
+        ),
       });
     }
   }
