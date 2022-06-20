@@ -20,7 +20,7 @@ class Form extends Component {
       professional: {
         workplace: "Workplace",
         position: "Position",
-        stay: "X yr and/or months",
+        stay: "Time",
         tasks: "-",
         sectionNumber: uniqid(),
       },
@@ -29,7 +29,7 @@ class Form extends Component {
 
       academic: {
         school: "School",
-        program: "Superfluid Dynamics",
+        program: "Programme",
         startDate: "",
         endDate: "",
         sectionNumber: uniqid(),
@@ -178,8 +178,6 @@ class Form extends Component {
     let buttonID = id;
     buttonID = buttonID.substring(5);
     let sectionType = name.substring(5); //'professional' || 'academic'
-    console.log("section type is " + sectionType);
-    console.log("button id is " + buttonID);
 
     if (sectionType === "professional") {
       this.setState({
@@ -288,7 +286,7 @@ class Form extends Component {
           </section>
           <section className="education-section">
             <h3>Formal education</h3>
-            <label htmlFor="edu-title">Title of study</label>
+            <label htmlFor="edu-title">Name of programme</label>
             <input
               type={"text"}
               id="edu-title"

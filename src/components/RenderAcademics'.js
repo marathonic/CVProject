@@ -24,10 +24,13 @@ class RenderAcademics extends Component {
     const { sections } = this.props;
     return (
       <div className="rendered-academics">
-        <h3>Academic stuff</h3>
+        <div className="big-academics">
+          <h3>Academic</h3>
+          <h3>STUFF</h3>
+        </div>
         {sections.map((section) => {
           return (
-            <div className="edu-strip">
+            <div className="edu-strip" key={section.sectionNumber}>
               {/* Buttons section */}
               <div className="button-strip">
                 <button

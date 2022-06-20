@@ -24,7 +24,7 @@ class RenderProfessional extends Component {
 
           {sections.map((section) => {
             return (
-              <div className="exp-strip">
+              <div className="exp-strip" key={section.sectionNumber}>
                 <div className="button-strip">
                   <button
                     className="edit-section-btn"
