@@ -54,16 +54,18 @@ class RenderProfessional extends Component {
               </div>
             );
           })}
-          <div className="exp-strip">
-            <div className="exp-brick">
-              <p>{this.props.workplace}</p>
-              <p>{this.props.position}</p>
-              <p>{this.props.stay}</p>
+          {this.props.workplace !== "" && (
+            <div className="exp-strip">
+              <div className="exp-brick">
+                <p>{this.props.workplace}</p>
+                <p>{this.props.position}</p>
+                <p>{this.props.stay}</p>
+              </div>
+              <div className="exp-tasks">
+                <p>{this.props.tasks}</p>
+              </div>
             </div>
-            <div className="exp-tasks">
-              <p>{this.props.tasks}</p>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     );

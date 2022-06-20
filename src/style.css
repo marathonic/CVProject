@@ -214,9 +214,15 @@ hr {
     font-size: 23px;
 }
 
-.exp-strip {
+.exp-strip,
+.edu-strip {
     display: flex;
     width: 100%;
+}
+
+.edu-strip {
+    background-color: whitesmoke;
+    border-bottom: solid 1px lightgray;
 }
 
 .exp-brick {
@@ -323,17 +329,29 @@ hr {
     font-size: 33px;
 }
 
-.rendered-edu-details {
-    background-color: whitesmoke;
-    border-bottom: solid 1px lightgray;
-}
+/* .rendered-edu-details {
+
+} */
 
 .edu-details > h3 {
     font-size: 23px;
+    font-size: 1.5rem;
 }
 
 .edu-details > p {
     font-size: 21px;
+}
+
+.edu-details > p:first-of-type {
+    font-size: 1.5rem;
+}
+
+.edu-details {
+    margin-left: 0.6rem;
+}
+
+.edu-details > * {
+    margin-left: 0.7rem;
 }
 
 .addSection-btn {

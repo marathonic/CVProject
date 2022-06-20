@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
+import { MdHighlightOff } from "react-icons/md";
 
 // const RenderAcademics = () => {
 //   return (
@@ -25,19 +27,33 @@ class RenderAcademics extends Component {
         <h3>Academic stuff</h3>
         {sections.map((section) => {
           return (
-            <div className="rendered-edu-details">
-              <h3>{section.program}</h3>
-              <p>{section.school}</p>
-              <p>{section.startDate}</p>
-              <p>{section.endDate}</p>
-              <button
-                type="button"
-                className="del-section-btn"
-                onClick={this.props.removeSection}
-                id={section.sectionNumber}
-              >
-                Del
-              </button>
+            <div className="edu-strip">
+              {/* Buttons section */}
+              <div className="button-strip">
+                <button
+                  className="edit-section-btn"
+                  onClick={this.props.editSection}
+                  id={"edit-" + section.sectionNumber}
+                  name="edit-academic"
+                >
+                  <FaRegEdit style={{ pointerEvents: "none" }} />
+                </button>
+                <hr />
+                <button
+                  type="button"
+                  className="del-section-btn"
+                  onClick={this.props.removeSection}
+                  id={section.sectionNumber}
+                >
+                  <MdHighlightOff style={{ pointerEvents: "none" }} />
+                </button>
+              </div>
+              <div className="edu-details">
+                <h3>{section.program}</h3>
+                <p>{section.school}</p>
+                <p>{section.startDate}</p>
+                <p>{section.endDate}</p>
+              </div>
             </div>
           );
         })}
