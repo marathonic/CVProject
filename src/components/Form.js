@@ -11,7 +11,7 @@ class Form extends Component {
     this.state = {
       personal: {
         fullName: "Name",
-        email: "example@email.com",
+        email: "example@host.domain",
         phone: "222111000",
       },
 
@@ -161,6 +161,8 @@ class Form extends Component {
   editSection(e) {
     // Steps: 1) Set the data as the state of the editable form. 2) Delete the original obj inside of professionalArray (obj that was copied).
 
+    //EDIT: IT WORKS!!! Next, we'll give academicArray the same functionality
+
     let { name, id } = e.target;
     let buttonID = id;
     buttonID = buttonID.substring(5);
@@ -181,6 +183,7 @@ class Form extends Component {
         ),
       });
     } else if (sectionType === "academic") {
+      //GIVE academic THE SAME FUNCTIONALITY AS professional!
       this.setState({
         academic: {
           school: this.state.academicArray[buttonID].school,

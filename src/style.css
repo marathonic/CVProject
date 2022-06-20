@@ -267,6 +267,51 @@ hr {
     border-bottom: none;
 }
 
+.button-strip {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-strip > button {
+    appearance: none;
+    border: none;
+    background-color: whitesmoke;
+
+}
+
+.button-strip > button:hover {
+    background-color: aqua;
+}
+
+.button-strip > button:last-of-type:hover {
+    background-color: palevioletred;
+}
+
+.button-strip > hr {
+    margin: 0;
+    border: 1px solid lightgray;
+}
+
+.button-strip > * {
+    cursor: pointer;
+}
+
+.button-strip > button {
+    height: 50%;
+    font-size: 1.7rem;
+
+}
+
+.button-strip > btn > * {
+    pointer-events: none;
+}
+/* .exp-strip > button {
+    display: block;
+    height: 50%;
+    font-size: 1.7rem;
+
+} */
+
 .rendered-academics {
     display: flex;
     flex-direction: column;
