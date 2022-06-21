@@ -1,12 +1,14 @@
 # CV Project
 
 ## My experience:
-This project was built as part of the Odin Project curriculum, where we are tasked with using class-based React components.
-In preparation for this app, I read the React docs and spent a few days building simple apps from scratch, whilst also reading online resources to further familiarize myself with the inner workings of the framework.
+This project was built as part of the Odin Project curriculum, where we are tasked with using class-based React components.  
+
+In preparation for this app, I read the React docs and spent a few days building simple apps from scratch,  
+whilst reading online resources to further familiarize myself with the inner workings of the framework.
 
 ## Problems solved:
 
-Built a few apps using React Hooks.
-Learned to use class-based React components.
-Gained experience with managing state, passing props and conditional rendering.
+Built a few apps using React Hooks.  
+Learned to use class-based React components.  
+Gained experience with managing state, passing props and conditional rendering.  
 Understood what makes components re-render when their state changes.
