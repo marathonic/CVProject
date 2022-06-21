@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/CVProject/static/css/main.ad64aed7.css",
+    "main.js": "/CVProject/static/js/main.a31bae40.js",
+    "static/media/Raleway-VariableFont_wght.ttf": "/CVProject/static/media/Raleway-VariableFont_wght.3fefe681f4c62116679b.ttf",
+    "index.html": "/CVProject/index.html",
+    "main.ad64aed7.css.map": "/CVProject/static/css/main.ad64aed7.css.map",
+    "main.a31bae40.js.map": "/CVProject/static/js/main.a31bae40.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad64aed7.css",
+    "static/js/main.a31bae40.js"
+  ]
+}
