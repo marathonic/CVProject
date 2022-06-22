@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/CVProject/static/css/main.ad64aed7.css",
-    "main.js": "/CVProject/static/js/main.a31bae40.js",
+    "main.js": "/CVProject/static/js/main.e58a54c5.js",
     "static/media/Raleway-VariableFont_wght.ttf": "/CVProject/static/media/Raleway-VariableFont_wght.3fefe681f4c62116679b.ttf",
     "index.html": "/CVProject/index.html",
     "main.ad64aed7.css.map": "/CVProject/static/css/main.ad64aed7.css.map",
-    "main.a31bae40.js.map": "/CVProject/static/js/main.a31bae40.js.map"
+    "main.e58a54c5.js.map": "/CVProject/static/js/main.e58a54c5.js.map"
   },
   "entrypoints": [
     "static/css/main.ad64aed7.css",
-    "static/js/main.a31bae40.js"
+    "static/js/main.e58a54c5.js"
   ]
 }
