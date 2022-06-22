@@ -3,10 +3,6 @@ import "../style.css";
 import { getDate, getMaxFutureGrad } from "./getDate";
 
 class Education extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let dateCheck = getDate();
     let maxFutureGrad = getMaxFutureGrad();

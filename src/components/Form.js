@@ -4,6 +4,7 @@ import RenderProfessional from "./RenderProfessional";
 import RenderAcademics from "./RenderAcademics'";
 import { getDate, getMaxFutureGrad } from "./getDate";
 import uniqid from "uniqid";
+import "../style.css";
 
 class Form extends Component {
   constructor() {
@@ -38,7 +39,6 @@ class Form extends Component {
     this.removeSectionWorkplace = this.removeSectionWorkplace.bind(this);
     this.removeSectionAcademic = this.removeSectionAcademic.bind(this);
     this.editSection = this.editSection.bind(this);
-    // this.removeWorkSection = this.removeWorkSection.bind(this);
   }
   dateCheck = getDate();
   maxDate = getMaxFutureGrad();
@@ -106,16 +106,21 @@ class Form extends Component {
         sectionName === "professional" ? emptyProfessional : emptyAcademic,
     });
   };
-  //Here's an idea: Sort sections by date! The most recent job held will render first, then the second oldest job, etc.
-  //NOTE: You should sort() BEFORE mapping over anything (although we're mapping inside of each Component, not here.)
+
+  //We want to bundle the following 2 recordSections up into 1, we just:
+  // concatenate the appropriate [] to newSection, either 'professional' or 'academic'.
+  // regardless of which one was clicked, let's call it X, and store it in a variable. That variable holds either 'professional' or 'academic'
+  // That variable looks like: < const profOrAcademic = this.state[X] >  // <--- for example, that could be the same as: this.state[academicArray],
+  // We also want to store the setter state property that holds that section, like so: < const sectionArray = X + Array> // <-- (same as line 142 below)
+  // then on the next line we set the state: this.setState({sectionArray: profOrAcademic})
+  // loop over all the keys inside the object we get (either academic or professional),
+  // and set them all to "" empty strings, then we assign a new sectionNumber, and that's it.
 
   recordWorkSection = (e) => {
-    //We're experimenting with SORTING by sectionNumber, to see if we can place new copies of edited (and promptly deleting the old version) sections.
     const newSection = [].concat(this.state.professional);
-    // .sort((a, b) => (a.sectionNumber > b.sectionNumber ? 1 : -1));
 
     this.setState({
-      professionalArray: this.state.professionalArray.concat(newSection), // <---- we need to push the whole section
+      professionalArray: this.state.professionalArray.concat(newSection),
 
       professional: {
         workplace: "",
@@ -128,15 +133,6 @@ class Form extends Component {
   };
 
   recordAcademicSection = (e) => {
-    //We want to clean these 2 record sections up into 1, we just:
-    // concatenate the appropriate [] to newSection, either 'professional' or 'academic'.
-    // regardless of which one was clicked, let's call it X, and store it in a variable. That variable holds either 'professional' or 'academic'
-    // That variable looks like: < const profOrAcademic = this.state[X] >  // <--- for example, that could be the same as: this.state[academicArray],
-    // We also want to store the setter state property that holds that section, like so: < const sectionArray = X + Array> // <-- (same as line 142 below)
-    // then on the next line we set the state: this.setState({sectionArray: profOrAcademic})
-    // loop over all the keys inside the object we get (either academic or professional),
-    // and set them all to "" empty strings, then we assign a new sectionNumber, and that's it.
-    // FOR NOW THOUGH, LET'S CONTINUE GIVING ACADEMIC THE SAME FUNCTIONALITY AS WORKPLACE.
     const newSection = [].concat(this.state.academic);
 
     this.setState({
@@ -170,10 +166,6 @@ class Form extends Component {
   }
 
   editSection(e) {
-    // Steps: 1) Set the data as the state of the editable form. 2) Delete the original obj inside of professionalArray (obj that was copied).
-
-    //EDIT: IT WORKS!!! Next, we'll give academicArray the same functionality
-
     let { name, id } = e.target;
     let buttonID = id;
     buttonID = buttonID.substring(5);
@@ -192,7 +184,6 @@ class Form extends Component {
         ),
       });
     } else if (sectionType === "academic") {
-      //GIVE academic THE SAME FUNCTIONALITY AS professional!
       this.setState({
         academic: {
           ...this.state.academicArray.find(
@@ -213,7 +204,6 @@ class Form extends Component {
     return (
       <div className="app-container">
         <form className="editing-container">
-          {/* Here begins the details section */}
           <section className="details-section">
             <label htmlFor="prs-fullName">Name</label>
             <input
@@ -240,7 +230,6 @@ class Form extends Component {
               name="phone"
             ></input>
           </section>
-          {/* Here begins the professional section */}
           <section className="exp-section">
             <h3>Professional Experience</h3>
             <label htmlFor="exp-workplace">previous workplace</label>
@@ -359,12 +348,6 @@ class Form extends Component {
           />
         </div>
       </div>
-
-      /*
-    ^^^^^ As you can seee, it wasn't a waste of time making all those stylings, we can just reuse them here!
-    Just by putting these components inside of divs with the classes we made for those divs, the stylings will be the same.
-
-    */
     );
   }
 }

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class PersonalDetails extends Component {
-  constructor() {
-    super();
-  }
   render() {
     return (
       <section className="details-section">

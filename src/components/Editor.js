@@ -4,9 +4,6 @@ import ProfessionalExp from "./ProfessionalExp";
 import Education from "./Education";
 
 class Editor extends Component {
-  constructor() {
-    super();
-  }
   render() {
     return (
       <div className="editing-container">

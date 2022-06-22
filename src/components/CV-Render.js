@@ -4,9 +4,6 @@ import RenderPersonal from "./RenderPersonal";
 import RenderProfessional from "./RenderProfessional";
 
 class CVRender extends Component {
-  constructor() {
-    super();
-  }
   render() {
     return (
       <div className="cv-render">

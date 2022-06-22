@@ -1,17 +1,10 @@
 import React, { Component } from "react";
-import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
+import { FaRegEdit } from "react-icons/fa";
 import { MdHighlightOff } from "react-icons/md";
 
 class RenderProfessional extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { sections } = this.props;
-
-    //I KNOW WHAT TO DO!
-    // we can set a uniqid(unique key) as an object property in Form.js, then pass it to each of these buttons as the id.
 
     return (
       <div className="rendered-professional">
@@ -20,8 +13,6 @@ class RenderProfessional extends Component {
           <h3> XP</h3>
         </div>
         <div className="prev-exp">
-          {/* Here begin the exp strips */}
-
           {sections.map((section) => {
             return (
               <div className="exp-strip" key={section.sectionNumber}>
