@@ -12,3 +12,4 @@ Built a few apps using React Hooks.
 Learned to use class-based React components.  
 Gained experience with managing state, passing props and conditional rendering.  
 Understood what makes components re-render when their state changes.
+After building the app using only class components, refactored everything to use only hooks.
