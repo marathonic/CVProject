@@ -70,8 +70,10 @@ function Form() {
       sectionNumber: uniqid(),
     });
   };
-  //Improvement: For both of these functions,
-  //just loop over all key pairs, set the values to "". Then, give the sectionNumber key a value of uniqid(),
+  //Observation: For both of these functions, we should be able to
+  //just loop over all key pairs, set the values to "", and
+  // then, give the sectionNumber key a value of uniqid(),
+  // so that only 1 function is needed.
 
   const recordAcademicSection = (e) => {
     const newSection = [].concat(academic);
@@ -134,7 +136,7 @@ function Form() {
 
   /*
 
-  Improvement: Move both functions into one. Try something like:
+  Observation: It should be possible to combine both functions into one. Try something like:
    recordSection = (e) => {
     const {name} = e.target; // <-- 'academic' || 'professional'
     const currentType = name;
